@@ -29,6 +29,8 @@ $(function () {
      crystal3Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
      userTotalScore = 0;
       $('.rand-num').html(randomNum)
+      $("total").html(userTotalScore)
+
     }
     else if (userTotalScore >= randomNum) {
       losses++
@@ -40,6 +42,7 @@ $(function () {
      crystal3Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
      userTotalScore = 0;
       $('.rand-num').html(randomNum)
+      $(".total").html(userTotalScore)
     }
   });
 
@@ -63,6 +66,7 @@ $(function () {
       $('.rand-num').html(randomNum)
       $(".total").html(userTotalScore)
     }
+
     else if (userTotalScore >= randomNum) {
       losses++
       $(".losing").html(losses)
@@ -97,6 +101,7 @@ $(function () {
      $('.rand-num').html(randomNum)
       $(".total").html(userTotalScore)
     }
+
     else if (userTotalScore >= randomNum) {
       losses++
       $(".losing").html(losses)
