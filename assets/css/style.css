@@ -1,0 +1,8 @@
+.jumbotron {
+  height: 100px;
+}
+
+.crystal-1, .crystal-2, .crystal-3 {
+  width: 75px;
+  height: auto;
+}
