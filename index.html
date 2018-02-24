@@ -11,66 +11,70 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <title>Crystal Collector</title>
+  <title>Coin Collector</title>
 </head>
 
-<body background="./assets/images/background.jpg" class="text-white container">
-  <h1 style="background:transparent !important" class="container jumbotron text-white">Crystal Collector</h1>
+<body class="container-fluid text-white">
+  <h1>Mario's Coin Collector</h1>
 
-  <div class="row">
-    <div class="col-md-12">
-      Each crystal has a random value. Select the crystals to add up to the random number.
+    <div class="row">
+      <div class="col-md-12">
+        Each crystal has a random value. Select the crystals to add up to the random number.
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 col-sm-2">
+        <h3>Random Number</h2>
+      </div>
+      <div class="col-md-3 col-sm-2">
+        <h2 class="rand-num">
+
+        </h2>
+      </div>
+
+      <div class="col-md-3 col-sm-2">
+        <h2>Total of Guesses</h2>
+      </div>
+      <div class="col-md-3 col-sm-2">
+        <h2 class="total">
+
+        </h2>
+      </div>
+    </div>
+
+    <div class="coins row text-center">
+      <div class="col-md-4 col-sm-4">
+        <img src="https://orig00.deviantart.net/465d/f/2017/171/9/f/mario_coin_1985_gif_by_augustohirakodias-dbdezac.gif" class="crystal-1"
+          alt="">
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <img src="https://orig00.deviantart.net/465d/f/2017/171/9/f/mario_coin_1985_gif_by_augustohirakodias-dbdezac.gif" class="crystal-2"
+          alt="">
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <img src="https://orig00.deviantart.net/465d/f/2017/171/9/f/mario_coin_1985_gif_by_augustohirakodias-dbdezac.gif" class="crystal-3"
+          alt="">
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-3">
+        Wins
+      </div>
+      <div class="col-md-3 winning">
+
+      </div>
+      <div class="col-md-3">
+        Losses
+      </div>
+      <div class="col-md-3 losing">
+
+      </div>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-md-2">
-      <h3>Random Number</h2>
-    </div>
-    <div class="col-md-2">
-      <h2 class="rand-num">
-
-      </h2>
-    </div>
-    <div class="col-md-2">
-      <h2>Total of Guesses</h2>
-    </div>
-    <div class="col-md-2">
-      <h2 class="total">
-
-      </h2>
-    </div>
-  </div>
-  <div class="row text-center">
-    <div class="col-md-4">
-      <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX18215309.jpg" class="crystal-1" alt="">
-    </div>
-    <div class="col-md-4">
-      <img src="https://cdn.iconscout.com/public/images/icon/premium/png-512/diamond-stone-crystal-ruby-3e35f167260d3a66-512x512.png"
-        class="crystal-2" alt="">
-    </div>
-    <div class="col-md-4">
-      <img src="http://laoblogger.com/images/blue-diamond-clipart-for-logo-1.jpg" class="crystal-3" alt="">
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-md-3">
-      Wins
-    </div>
-    <div class="col-md-3 winning">
-      
-    </div>
-    <div class="col-md-3">
-      Losses
-    </div>
-    <div class="col-md-3 losing">
-      
-    </div>
-  </div>
-  </div>
-  </div>
+  
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="./assets/javascript/game.js"></script>

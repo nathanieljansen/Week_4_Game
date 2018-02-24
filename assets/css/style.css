@@ -1,8 +1,14 @@
-.jumbotron {
-  height: 100px;
-}
-
 .crystal-1, .crystal-2, .crystal-3 {
   width: 75px;
   height: auto;
+}
+
+html {
+  height: 100%;
+  background: url("https://www.pixilart.com/images/art/18b140ee5ae7053.png") no-repeat center center;
+  background-size: cover;
+}
+
+body {
+  background-color: transparent !important;
 }
