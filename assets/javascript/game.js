@@ -9,6 +9,8 @@ var losses = 0;
 
 
 $(function () {
+  $(".winning").html(wins)
+  $(".losing").html(losses)
   $(".total").html(userTotalScore)
   $('.rand-num').html(randomNum)
   console.log(randomNum)

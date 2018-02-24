@@ -13,3 +13,20 @@ body {
   font-family: 'VT323', monospace;
   background-color: transparent !important;
 }
+
+.coins{
+  margin-top: 85px;
+}
+.score{
+  margin-top: 125px;
+}
+
+.rand-num, .total{
+  color: black
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    text-align: center;
+  }
+}
