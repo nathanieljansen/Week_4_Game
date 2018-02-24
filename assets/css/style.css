@@ -10,5 +10,6 @@ html {
 }
 
 body {
+  font-family: 'VT323', monospace;
   background-color: transparent !important;
 }
