@@ -3,7 +3,7 @@ var coin1Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 var coin2Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 var coin3Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 var userTotalScore = 0;
-var wins = 0;
+var wins = "000";
 var losses = "003";
 var coinSound = new Audio("http://themushroomkingdom.net/sounds/wav/smb/smb_coin.wav")
 var lostRoundSound = new Audio("http://themushroomkingdom.net/sounds/wav/smb/smb_mariodie.wav")
@@ -50,13 +50,13 @@ $(function () {
     $(".coin-1, .coin-2, .coin-3").on('click');
     $(".total").html(userTotalScore)
     console.log(userTotalScore)
-    if (userTotalScore === randomNum) {
+    if (userTotalScore == randomNum) {
       roundWonSound.play();
       wins++
       $('.coin-1, .coin-2, .coin-3').each(function () {
         this.style.pointerEvents = 'none';
       });
-      $(".winning").html(wins)
+      $(".winning").html("00" + wins)
       $(".winnerLoser").html("You won!");
       $(".startOver").html("Click Here to Go Again");
     }
@@ -67,8 +67,8 @@ $(function () {
         gameOverSound.play();
         wins = 0;
         losses = 0;
-        $(".winning").html(wins)
-        $(".losing").html(losses)
+        $(".winning").html("00" + wins)
+        $(".losing").html("00" + losses)
         $(".winnerLoser").html("Game Over!");
         $(".startOver").html("Click Here to Start Again");
         $('.coin-1, .coin-2, .coin-3').each(function () {
@@ -81,7 +81,7 @@ $(function () {
         $('.coin-1, .coin-2, .coin-3').each(function () {
           this.style.pointerEvents = 'none';
         });
-        $(".losing").html(losses);
+        $(".losing").html("00" + losses);
         $(".winnerLoser").html("You lost!");
         $(".startOver").html("Click Here to Try Again");
       }
