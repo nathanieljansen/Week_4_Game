@@ -1,10 +1,15 @@
 var randomNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-var crystal1Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-var crystal2Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-var crystal3Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+var coin1Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+var coin2Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+var coin3Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 var userTotalScore = 0;
 var wins = 0;
 var losses = 0;
+var coinSound = new Audio("http://themushroomkingdom.net/sounds/wav/smb/smb_coin.wav")
+var lostRoundSound = new Audio("http://themushroomkingdom.net/sounds/wav/smb/smb_mariodie.wav")
+var gameOverSound = new Audio
+("http://themushroomkingdom.net/sounds/wav/smb/smb_gameover.wav")
+var roundWonSound = new Audio("http://themushroomkingdom.net/sounds/wav/smb/smb_stage_clear.wav")
 
 
 
@@ -14,108 +19,101 @@ $(function () {
   $(".total").html(userTotalScore)
   $('.rand-num').html(randomNum)
   console.log(randomNum)
-  $(".crystal-1").attr("data-value", crystal1Value);
-  $('.crystal-1').on('click', function () {
-    $(".crystal-1").attr("data-value")
-    console.log(parseInt($(".crystal-1").attr("data-value")))
-    userTotalScore += crystal1Value
+
+  $('.coin-1').on('click', function () {
+    coinSound.play();
+    console.log(parseInt($(".coin-1").attr("data-value")))
+    userTotalScore += coin1Value
+    gameFunction();
+  });
+
+
+  $('.coin-2').on('click', function () {
+    coinSound.play();
+    console.log(parseInt($(".coin-2").attr("data-value")))
+    userTotalScore += coin2Value
+    gameFunction();
+  });
+
+
+  $('.coin-3').on('click', function () {
+    coinSound.play();
+    console.log(parseInt($(".coin-3").attr("data-value")))
+    userTotalScore += coin3Value
+    gameFunction();
+  });
+
+
+  function gameFunction() {
+    $(".coin-1, .coin-2, .coin-3").on('click');
     $(".total").html(userTotalScore)
     console.log(userTotalScore)
     if (userTotalScore === randomNum) {
+      roundWonSound.play();
       wins++
+      $('.coin-1, .coin-2, .coin-3').each(function () {
+        this.style.pointerEvents = 'none';
+      });
       $(".winning").html(wins)
-      alert("You win!");
-     randomNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-     crystal1Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     crystal2Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     crystal3Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     userTotalScore = 0;
-      $('.rand-num').html(randomNum)
-      $("total").html(userTotalScore)
-
+      $(".winnerLoser").html("You won!");
+      $(".startOver").html("Click Here to Go Again");
     }
+
     else if (userTotalScore >= randomNum) {
+      
       losses++
-      $(".losing").html(losses)
-      alert("You lose!!");
-     randomNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-     crystal1Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     crystal2Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     crystal3Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     userTotalScore = 0;
-      $('.rand-num').html(randomNum)
-      $(".total").html(userTotalScore)
-    }
-  });
+      if (losses === 3) {
+        gameOverSound.play();
+        wins = 0;
+        losses = 0;
+        $(".winning").html(wins)
+        $(".losing").html(losses)
+        $(".winnerLoser").html("Game Over!");
+        $(".startOver").html("Click Here to Start Again");
+        $('.coin-1, .coin-2, .coin-3').each(function () {
+          this.style.pointerEvents = 'none';
+        });
 
-  $(".total").html(userTotalScore)
-  $(".crystal-2").attr("data-value", crystal2Value);
-  $('.crystal-2').on('click', function () {
-    $(".crystal-2").attr("data-value")
-    console.log(parseInt($(".crystal-2").attr("data-value")))
-    userTotalScore += crystal2Value
+      }
+      else if (userTotalScore >= randomNum) {
+        lostRoundSound.play();
+        $('.coin-1, .coin-2, .coin-3').each(function () {
+          this.style.pointerEvents = 'none';
+        });
+        $(".losing").html(losses);
+        $(".winnerLoser").html("You lost!");
+        $(".startOver").html("Click Here to Try Again");
+      }
+    }
+
+
+  }
+
+
+  function randomizeNum() {
+    randomNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+    coin1Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+    coin2Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+    coin3Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+    userTotalScore = 0;
+    $('.rand-num').html(randomNum)
     $(".total").html(userTotalScore)
-    console.log(userTotalScore)
-    if (userTotalScore === randomNum) {
-      wins++
-      $(".winning").html(wins)
-      alert("You win!");
-     randomNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-     crystal1Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     crystal2Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     crystal3Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     userTotalScore = 0;
-      $('.rand-num').html(randomNum)
-      $(".total").html(userTotalScore)
-    }
+  }
 
-    else if (userTotalScore >= randomNum) {
-      losses++
-      $(".losing").html(losses)
-      alert("You lose!!");
-     randomNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-     crystal1Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     crystal2Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     crystal3Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     userTotalScore = 0;
-      $('.rand-num').html(randomNum)
-      $(".total").html(userTotalScore)
-    }
-  });
+  function clearWinLossText() {
+    $(".winnerLoser").html(" ");
+    $(".startOver").html(" ");
+  }
 
-  $(".total").html(userTotalScore)
-  $(".crystal-3").attr("data-value", crystal3Value);
-  $('.crystal-3').on('click', function () {
-    $(".crystal-3").attr("data-value")
-    console.log(parseInt($(".crystal-3").attr("data-value")))
-    userTotalScore += crystal3Value
-    $(".total").html(userTotalScore)
-    console.log(userTotalScore)
-    if (userTotalScore === randomNum) {
-      wins ++ 
-      $(".winning").html(wins)
-      alert("You win!"); 
-     randomNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-     crystal1Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     crystal2Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     crystal3Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     userTotalScore = 0;
-     $('.rand-num').html(randomNum)
-      $(".total").html(userTotalScore)
-    }
-
-    else if (userTotalScore >= randomNum) {
-      losses++
-      $(".losing").html(losses)
-      alert("You lose!!");
-     randomNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-     crystal1Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     crystal2Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     crystal3Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-     userTotalScore = 0;
-      $('.rand-num').html(randomNum)
-      $(".total").html(userTotalScore)
-    }
-  });
+  $(".startOver").on("click", function () {
+    $('.coin-1, .coin-2, .coin-3').each(function () {
+      this.style.pointerEvents = 'auto';
+    });
+    clearWinLossText();
+    randomizeNum();
+  })
 
 });
+
+
+

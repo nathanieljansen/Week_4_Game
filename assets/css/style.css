@@ -1,4 +1,4 @@
-.crystal-1, .crystal-2, .crystal-3 {
+.coin-1, .coin-2, .coin-3 {
   width: 75px;
   height: auto;
 }
@@ -11,22 +11,35 @@ html {
 
 body {
   font-family: 'VT323', monospace;
-  background-color: transparent !important;
+  background-color: transparent;
 }
 
-.coins{
-  margin-top: 75px;
-}
-.score{
-  margin-top: 125px;
+.coins {
+  margin-top: 35px;
 }
 
-.rand-num, .total{
-  color: black
+.score {
+  margin-top: 155px;
+}
+
+
+.instructions {
+  font-size: 25px;
+  margin-top: 15px;
+}
+
+.winnerLoser {
+  font-size: 100px;
 }
 
 @media screen and (max-width: 768px) {
   .header {
     text-align: center;
+  }
+  .instructions {
+    font-size: 15px;
+  }
+  .winnerLoser {
+    font-size: 30px;
   }
 }
