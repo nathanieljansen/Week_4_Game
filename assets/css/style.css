@@ -35,15 +35,21 @@ body {
 @media screen and (max-width: 768px) {
   .header {
     text-align: center;
+    margin-bottom: 0px;
   }
   .instructions {
+    margin-top: 0px;
     font-size: 15px;
-    margin-top: 5px;
   }
   .winnerLoser {
-    font-size: 30px;
+    font-size: 75px;
   }
   .score {
-    margin-top: 100px;
+    margin-top: 60px;
   }
+  
+  .startOver {
+    font-size: 30px;
+  }
+  
 }

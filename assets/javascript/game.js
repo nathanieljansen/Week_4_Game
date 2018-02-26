@@ -82,7 +82,7 @@ $(function () {
           this.style.pointerEvents = 'none';
         });
         $(".losing").html("00" + losses);
-        $(".winnerLoser").html("You lost!");
+        $(".winnerLoser").html("You Lost!");
         $(".startOver").html("Click Here to Try Again");
       }
     }
