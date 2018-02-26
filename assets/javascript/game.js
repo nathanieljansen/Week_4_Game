@@ -12,7 +12,8 @@ var gameOverSound = new Audio
 var roundWonSound = new Audio("http://themushroomkingdom.net/sounds/wav/smb/smb_stage_clear.wav")
 
 
-$(document).ready(function () {
+
+$(function () {
   // Writes the wins, losses, users score, and the random number to the page
   $(".winning").html(wins)
   $(".losing").html(losses)
