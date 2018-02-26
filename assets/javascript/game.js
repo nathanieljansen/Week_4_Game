@@ -18,11 +18,11 @@ $(function () {
   $(".winning").html(wins)
   $(".losing").html(losses)
   $(".total").html(userTotalScore)
-  $('.rand-num').html(randomNum)
+  $(".rand-num").html(randomNum)
   console.log(randomNum)
 
   // 
-  $('.coin-1').on('click', function () {
+  $(".coin-1").on("click", function () {
     coinSound.play();
     console.log(parseInt($(".coin-1").attr("data-value")))
     userTotalScore += coin1Value
@@ -30,7 +30,7 @@ $(function () {
   });
 
 
-  $('.coin-2').on('click', function () {
+  $(".coin-2").on("click", function () {
     coinSound.play();
     console.log(parseInt($(".coin-2").attr("data-value")))
     userTotalScore += coin2Value
@@ -38,7 +38,7 @@ $(function () {
   });
 
 
-  $('.coin-3').on('click', function () {
+  $(".coin-3").on("click", function () {
     coinSound.play();
     console.log(parseInt($(".coin-3").attr("data-value")))
     userTotalScore += coin3Value
@@ -71,15 +71,15 @@ $(function () {
         $(".losing").html("00" + losses)
         $(".winnerLoser").html("Game Over!");
         $(".startOver").html("Click Here to Start Again");
-        $('.coin-1, .coin-2, .coin-3').each(function () {
-          this.style.pointerEvents = 'none';
+        $(".coin-1, .coin-2, .coin-3").each(function () {
+          this.style.pointerEvents = "none";
         });
 
       }
       else if (userTotalScore >= randomNum) {
         lostRoundSound.play();
-        $('.coin-1, .coin-2, .coin-3').each(function () {
-          this.style.pointerEvents = 'none';
+        $(".coin-1, .coin-2, .coin-3").each(function () {
+          this.style.pointerEvents = "none";
         });
         $(".losing").html("00" + losses);
         $(".winnerLoser").html("You Lost!");
@@ -104,8 +104,8 @@ $(function () {
   }
 
   $(".startOver").on("click", function () {
-    $('.coin-1, .coin-2, .coin-3').each(function () {
-      this.style.pointerEvents = 'auto';
+    $(".coin-1, .coin-2, .coin-3").each(function () {
+      this.style.pointerEvents = "auto";
     });
     clearWinLossText();
     randomizeNum();
