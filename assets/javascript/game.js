@@ -66,7 +66,7 @@ $(function () {
       if (losses <= 0 ) {
         gameOverSound.play();
         wins = 0;
-        losses = 0;
+        losses = 3;
         $(".winning").html("00" + wins)
         $(".losing").html("00" + losses)
         $(".winnerLoser").html("Game Over!");
