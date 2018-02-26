@@ -4,7 +4,7 @@ var coin2Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 var coin3Value = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 var userTotalScore = 0;
 var wins = 0;
-var losses = 0;
+var losses = "003";
 var coinSound = new Audio("http://themushroomkingdom.net/sounds/wav/smb/smb_coin.wav")
 var lostRoundSound = new Audio("http://themushroomkingdom.net/sounds/wav/smb/smb_mariodie.wav")
 var gameOverSound = new Audio
@@ -14,12 +14,14 @@ var roundWonSound = new Audio("http://themushroomkingdom.net/sounds/wav/smb/smb_
 
 
 $(function () {
+  // Writes the wins, losses, users score, and the random number to the page
   $(".winning").html(wins)
   $(".losing").html(losses)
   $(".total").html(userTotalScore)
   $('.rand-num').html(randomNum)
   console.log(randomNum)
 
+  // 
   $('.coin-1').on('click', function () {
     coinSound.play();
     console.log(parseInt($(".coin-1").attr("data-value")))
@@ -60,9 +62,8 @@ $(function () {
     }
 
     else if (userTotalScore >= randomNum) {
-      
-      losses++
-      if (losses === 3) {
+      losses--
+      if (losses <= 0 ) {
         gameOverSound.play();
         wins = 0;
         losses = 0;
@@ -85,10 +86,7 @@ $(function () {
         $(".startOver").html("Click Here to Try Again");
       }
     }
-
-
   }
-
 
   function randomizeNum() {
     randomNum = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
