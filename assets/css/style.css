@@ -38,8 +38,12 @@ body {
   }
   .instructions {
     font-size: 15px;
+    margin-top: 5px;
   }
   .winnerLoser {
     font-size: 30px;
+  }
+  .score {
+    margin-top: 100px;
   }
 }
